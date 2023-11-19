@@ -22,7 +22,7 @@ permissions:
   id-token: write
 
 
-concurrency: reinevent-takeaway    # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: cloudsentrics    # This wills ensure only a single workflow of merge to master is run at a time
 
 jobs:
   kics:
