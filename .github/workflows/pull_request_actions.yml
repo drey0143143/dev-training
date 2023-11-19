@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
   pull_request: 
     branches:
       - main
@@ -12,6 +13,8 @@ env:
   TERRAFORM_VERSION: 1.3.5
   TERRAGRUNT_VERSION: 0.40.0
   TERRAFORM_WORKING_DIR: './applied/accounts/reinvent-takeaway/environment/'
+  TF_IN_AUTOMATION: true
+  TF_INPUT: false
 
 permissions:
   contents: write       # write permissions are needed in order to commit changes back to the branches/
@@ -19,18 +22,18 @@ permissions:
   id-token: write
 
 
-concurrency: reinevent-takeaway    # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: cloudsentrics    # This wills ensure only a single workflow of merge to master is run at a time
 
 jobs:
   kics:
     # Kics perform statics codes analysis of Infrastructure of Code (Terraform).
-    # More details can be found here: https://docs.kics.io/latest/
+    # More details can be found here:https://docs.kics.io/latest/
     name: "Run Kics scan on Terraform code"
     uses: ./.github/workflows/terraform_kics.yml
     with:
       # Enabling Comments will add a comment to a PR, but these do no exist in Push events and will throw an error.
       ENABLE_COMMENTS: true
-      WORKING_DIRECTORY: 'modules/wafv2'
+      WORKING_DIRECTORY: 'modules/wafv2,infrastructure/region/awssso,infrastructure/region/iam' # need to use a unified job because we are limited to 1 KICS comment per PR
 
   plan:
     name: "Terragrunt Init,Validate and Plan"
