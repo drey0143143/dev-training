@@ -15,6 +15,7 @@ def has_policy_attached(iam_client, role_name, policy_arn):
         print(f"Error checking attached policies for IAM role {role_name}: {str(e)}")
         return False
 
+# This will check for the EC2 instances within any AWS ccount
 def lambda_handler(event, context):
     ec2_client = boto3.client('ec2')
     iam_client = boto3.client('iam')
