@@ -23,7 +23,7 @@ variable "security_group_name" {
   type        = string
 }
 
-variable "aws_region" {
-  description = " Name of the region to create resources"
-  type        = string
-}
+#variable "aws_region" {
+  #description = " Name of the region to create resources"
+  #type        = string
+#}
