@@ -27,7 +27,3 @@ module "cloudsentrics" {
   security_group_name = "cloudsentrics"
   aws_region          = "us-east-1"
 }
-
-provider "aws" {
-  region = "us-east-1"  
-}
