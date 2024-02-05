@@ -20,5 +20,10 @@ module "cloudsentrics" {
 }
 
 provider "aws" {
-  region = "us-east-1"  
+  region  = "us-east-1"  # Replace with your AWS region
+  # version = "~> 3.0"  # Uncomment and adjust the version if necessary
+
+  # Optionally, you can specify credentials here, but it's
+  # often better to set them via environment variables or shared credentials files.
 }
+
