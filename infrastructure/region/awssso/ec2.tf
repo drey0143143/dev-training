@@ -9,7 +9,8 @@ module "dev_nginx_servers" {
 }
 
 module "prod_nginx_servers" {
- environment         = "prod"
+  source              = "../../..//modules/ec2"
+  environment         = "prod"
   instance_type       = "t2.micro"
   instance_count      = "3"
   ami_id              = "ami-041feb57c611358bd"
