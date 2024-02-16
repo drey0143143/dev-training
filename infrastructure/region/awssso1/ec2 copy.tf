@@ -5,7 +5,7 @@
   #instance_count      = "2"
   #ami_id              = "ami-041feb57c611358bd"
   #security_group_name = "dev-nginx"
-  #aws_region          = "us-east-1"
+
 #}
 
 #module "prod_nginx_servers" {

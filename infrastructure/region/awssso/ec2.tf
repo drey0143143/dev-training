@@ -25,3 +25,16 @@
   #ami_id              = "ami-041feb57c611358bd"
   #security_group_name = "cloudsentrics"
 #}
+
+
+module "ec2_instance" {
+
+  source = "../../..//modules/ecs"
+  aws_ami = "ami-041feb57c611358bd"
+  instance_type = "t2.micro"
+  region = "us-east-1"
+  availability_zone = "us-east-1b"
+  tags  = {
+    name = "devsec-instance"
+  }
+}
