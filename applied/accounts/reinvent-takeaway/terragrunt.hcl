@@ -1,4 +1,4 @@
-terragrunt_version_constraint = "~> 0.40.0"
+terragrunt_version_constraint = "0.53.0"
 
 remote_state {
   backend = "s3"
@@ -20,10 +20,10 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.30.0" # ~> 4.30.0 , ">=3.0.0, < 5.0.0"
+      version = "5.36.0"
     }
   }
-  required_version = "~> 1.3.5" # ~> 1.2.9 , ~> 1.1.3"
+  required_version = "~> 1.7.2"
 }
 EOF
 }
