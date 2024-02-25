@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 
-concurrency: reinevent-takeaway1    # This wills ensure only a single workflow of merge to master is run at a time
+concurrency: devsecops    # This wills ensure only a single workflow of merge to master is run at a time
 
 jobs:
   kics:
