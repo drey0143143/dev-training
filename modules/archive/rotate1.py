@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     for user in response['Users']:
         username = user['UserName']
         
-        # Check if the user has ever logged in
+        # Check if the user has ever logged in within the specified time frame of 90 days
         if 'PasswordLastUsed' not in user:
             last_sign_in = None
         else:
@@ -41,7 +41,7 @@ def lambda_handler(event, context):
             PasswordExpirationTime=datetime.now()
         )
         
-        # Send an email to notify the user that their account has been disabled
+        # Send an email to notify the user that their account has been disabled and deleted
         message = "Your IAM account has been disabled due to inactivity."
         subject = "IAM Account Disabled"
         sender = "sender@example.com"

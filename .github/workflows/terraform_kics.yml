@@ -24,6 +24,7 @@ jobs:
       uses: checkmarx/kics-github-action@v1.7.0
       with:
         path: ${{ inputs.WORKING_DIRECTORY }}
+        fail_on: high,medium
         token: ${{ secrets.GITHUB_TOKEN }}
         output_path: myResults/
         ignore_on_exit: results
