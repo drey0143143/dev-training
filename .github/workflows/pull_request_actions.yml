@@ -12,7 +12,7 @@ on:
 env:
   TERRAFORM_VERSION: 1.7.2
   TERRAGRUNT_VERSION: 0.56.0
-  TERRAFORM_WORKING_DIR: './applied/accounts/prod/iam_geoup'
+  TERRAFORM_WORKING_DIR: './applied/accounts/prod
 
 permissions:
   contents: write
