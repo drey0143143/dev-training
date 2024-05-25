@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-24.04
     defaults:
       run:
-      working-directory: ${{env.TERRAFORM_WORKING_DIR}}
+        working-directory: ${{env.TERRAFORM_WORKING_DIR}}
     steps:
       - name : "Checkout"
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
       - name: Install Terragrunt
         uses: autero1/action-terragrunt@v3
         with:
-          terragrunt_version: ${{ env.TERRAGRUNT_VERSION }}
+          terragrunt-version: ${{ env.TERRAGRUNT_VERSION }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -70,11 +70,11 @@ jobs:
 
   apply:
     name: "Terragrunt Apply"
-    if: github.event_name == "push"
+    if: github.event_name == 'push'
     runs-on: ubuntu-24.04
     defaults:
       run:
-      working-directory: ${{env.TERRAFORM_WORKING_DIR}}
+        working-directory: ${{env.TERRAFORM_WORKING_DIR}}
 
     steps:
       - name : "Checkout"
@@ -91,7 +91,7 @@ jobs:
       - name: Install Terragrunt
         uses: autero1/action-terragrunt@v3
         with:
-          terragrunt_version: ${{ env.TERRAGRUNT_VERSION }}
+          terragrunt-version: ${{ env.TERRAGRUNT_VERSION }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
