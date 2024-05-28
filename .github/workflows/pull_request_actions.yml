@@ -17,7 +17,7 @@ permissions:
 concurrency: cloudsentrics # This will ensure only a single workflow is run at a time
 
 
-jobs
+jobs:
   run_plan_in_prod_environment:
     name: terraform init, validate, plan"
     uses: ./.github/workflows/reuseable_plan_actions.yml
