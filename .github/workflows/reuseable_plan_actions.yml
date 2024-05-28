@@ -18,7 +18,7 @@ on:
       AWS_REGION:
         required: true 
         type: string
-      #ENVIRONMENT_NAME:
+      #ENVIRONMENT_NAMEe:
        # description: "The environment to use in running workflows"
        # required: true 
        # type: string
