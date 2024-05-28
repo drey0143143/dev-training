@@ -41,9 +41,9 @@ jobs:
       AWS_REGION: 'us-east-1'
     secrets: inherit
 
-  run_plan_prod_environment:
+  run_plan_dev_environment:
     name: terraform init, validate, plan
-    needs: [run_apply_in_dev_environment]
+    needs: [run_apply_in_prod_environment]
     uses: ./.github/workflows/reuseable_plan_actions.yml
     with:
      ENVIRONMENT_NAME: 'dev'
