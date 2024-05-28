@@ -45,7 +45,7 @@ jobs:
     name: terraform init, validate, plan
     needs: [run_apply_in_dev_environment]
     uses: ./.github/workflows/reuseable_plan_actions.yml
-    with
+    with:
      ENVIRONMENT_NAME: 'dev'
      TERRAFORM_VERSION: '1.1.1'
      TERRAGRUNT_VERSION: '0.56.0'
