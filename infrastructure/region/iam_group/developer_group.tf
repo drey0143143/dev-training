@@ -22,7 +22,7 @@ data "aws_iam_policy_document" "developer_inline_policy" {
 
     statement {
         sid = ""
-        actions = ["*"
+        actions = ["*"]
         resources = [
             "*",
         ]
