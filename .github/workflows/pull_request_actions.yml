@@ -18,6 +18,28 @@ concurrency: cloudsentrics # This will ensure only a single workflow is run at a
 
 
 jobs:
+  kics:
+    name: Run KICS Code Analysis
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: ${{github.event.pull_request.head.ref}}
+
+    - name: Run KICS Scan
+      uses: checkmarx/kics-github-action@v2.0.0
+      with:
+        path: ./infrastructure/region/iam_group
+        token: ${{ secrets.GITHUB_TOKEN }}
+        output_path: myResults/
+        ignore_on_exit: results
+        enable_comments: true
+
+    - name: Display KICS results
+      run: |
+        cat myResults/results.json
+ 
   run_plan_in_prod_environment:
     name: Prod-environment, terraform plan"
     uses: ./.github/workflows/reuseable_plan_actions.yml

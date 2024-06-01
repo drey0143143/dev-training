@@ -15,12 +15,16 @@ data "aws_iam_policy_document" "developer_inline_policy" {
     statement {
         sid = ""
         actions = ["*"]
-        resources = ["*"]
+        resources = [
+            "*",
+        ]
     }
 
     statement {
         sid = ""
         actions = ["*"
-        resources = ["*"]
+        resources = [
+            "*",
+        ]
     }
 }
