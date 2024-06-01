@@ -14,19 +14,13 @@ module "developer" {
 data "aws_iam_policy_document" "developer_inline_policy" {
     statement {
         sid = ""
-        actions = [
-            "cloudtrail:*",
-            "cloudwatch:*"
-        ]
+        actions = ["*]
         resources = ["*"]
     }
 
     statement {
         sid = ""
-        actions = [
-            "ec2:*",
-            "s3:*"
-        ]
+        actions = [*]
         resources = ["*"]
     }
 }
