@@ -55,7 +55,7 @@ jobs:
  
   run_apply_in_dev_environment:
     name: dev-environment terraform apply
-    needs: [run_plan_in_dev_environment]
+    needs: [run_plan_dev_environment]
     uses: ./.github/workflows/reuseable_apply_actions.yml
     with:
       #ENVIRONMENT_NAME: 'prod'
