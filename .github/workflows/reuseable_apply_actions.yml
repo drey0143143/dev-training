@@ -19,7 +19,7 @@ on:
         required: true 
         type: string
       #ENVIRONMENT_NAME:
-       # reguired: true 
+       # required: true 
        # type: string
 
 jobs:
@@ -65,7 +65,7 @@ jobs:
         run: terragrunt run-all apply -no-color --terragrunt-non-interactive
         continue-on-error: true
 
-      - name: Terragrun Destroy
-        id: destroy
-        run: terragrunt run-all destroy -no-color --terragrunt-non-interactive
-        continue-on-error: true
+      #- name: Terragrun Destroy
+        #id: destroy
+        #run: terragrunt run-all destroy -no-color --terragrunt-non-interactive
+        #continue-on-error: true
