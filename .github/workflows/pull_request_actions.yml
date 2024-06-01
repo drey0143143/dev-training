@@ -42,6 +42,7 @@ jobs:
  
   run_plan_in_prod_environment:
     name: Prod-environment, terraform plan"
+    needs: [kics]
     uses: ./.github/workflows/reuseable_plan_actions.yml
     with:
       #ENVIRONMENT_NAME: 'prod'
