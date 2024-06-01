@@ -1,9 +1,9 @@
 name: Terraform plan and Apply
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  #push:
+   # branches:
+    # - main
   
   pull_request:
     branches:
@@ -18,8 +18,16 @@ concurrency: cloudsentrics # This will ensure only a single workflow is run at a
 
 
 jobs:
+  kics:
+    name: 'Run KICS scan'
+    uses: ./.github/workflows/terraform_kics.yml
+    with:
+      ENABLE_COMMENTS: true 
+      WORKING_DIRECTORY: 'infrastructure/region/iam_group'
+ 
   run_plan_in_prod_environment:
-    name: terraform init, validate, plan"
+    name: Prod-environment, terraform plan"
+    needs: [kics]
     uses: ./.github/workflows/reuseable_plan_actions.yml
     with:
       #ENVIRONMENT_NAME: 'prod'
@@ -30,7 +38,7 @@ jobs:
     secrets: inherit
 
   run_apply_in_prod_environment:
-    name: terraform init, apply
+    name: prod-environment terraform apply
     needs: [run_plan_in_prod_environment]
     uses: ./.github/workflows/reuseable_apply_actions.yml
     with:
@@ -42,7 +50,7 @@ jobs:
     secrets: inherit
 
   run_plan_dev_environment:
-    name: terraform init, validate, plan
+    name: dev-environment terraform plan
     needs: [run_apply_in_prod_environment]
     uses: ./.github/workflows/reuseable_plan_actions.yml
     with:

@@ -19,14 +19,13 @@ on:
         required: true 
         type: string
       #ENVIRONMENT_NAME:
-       # reguired: true 
+       # required: true 
        # type: string
 
 jobs:
   plan:
     name: "Terragrunt Init, Apply"
     #environment: ${{ inputs.ENVIRONMENT_NAME }}
-    if: github.event_name == 'push'
     runs-on: ubuntu-24.04
     defaults:
       run:

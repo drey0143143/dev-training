@@ -24,9 +24,10 @@ data "aws_iam_policy_document" "it_engineer_inline_policy" {
     statement {
         sid = ""
         actions = [
-            "ec2:*",
-            "s3:*"
+            "*"
         ]
-        resources = ["*"]
+        resources = [
+            "*",
+        ]
     }
 }
